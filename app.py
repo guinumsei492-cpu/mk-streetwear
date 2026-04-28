@@ -1,145 +1,154 @@
 import streamlit as st
 
-# Configuração Master
-st.set_page_config(page_title="MK // LETHAL MUAY THAI", layout="wide")
+# Configuração de Interface Técnica
+st.set_page_config(page_title="MK // COMBAT MECHANICS", layout="wide")
 
-# CSS "EXTREMO" - Customização total de UI
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@300;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syncopate:wght@700&display=swap');
 
     .stApp {
         background-color: #050505;
-        background-image: radial-gradient(circle at 50% 50%, #1a0000 0%, #050505 100%);
+        color: #e0e0e0;
+        font-family: 'JetBrains Mono', monospace;
     }
 
-    /* Título Futurista */
-    .title-container {
-        text-align: center;
-        padding: 40px;
-        border: 1px solid #333;
-        background: rgba(255, 0, 0, 0.05);
-        border-radius: 2px;
-        margin-bottom: 50px;
+    /* Cabeçalho Estilo Militar */
+    .header-box {
+        border-left: 10px solid #ff0000;
+        padding-left: 20px;
+        margin-bottom: 40px;
+        background: linear-gradient(90deg, #1a0000 0%, transparent 100%);
     }
 
     .main-title {
-        font-family: 'Orbitron', sans-serif;
-        color: #ff0000;
-        font-size: 65px;
-        font-weight: 900;
-        letter-spacing: 15px;
-        text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        font-family: 'Syncopate', sans-serif;
+        font-size: 45px;
+        color: #ffffff;
+        letter-spacing: 2px;
+        margin: 0;
     }
 
-    /* Cards de Golpes e Pontos Vitais */
-    .fight-card {
+    /* Cards de Execução */
+    .step-card {
         background: #0a0a0a;
-        border: 1px solid #222;
-        padding: 20px;
-        transition: 0.4s;
-        margin-bottom: 15px;
+        border: 1px solid #1a1a1a;
+        padding: 25px;
+        margin-bottom: 20px;
+        border-radius: 4px;
     }
 
-    .fight-card:hover {
-        border: 1px solid #ff0000;
-        background: #110000;
-        box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-    }
-
-    .vital-title {
+    .step-number {
         color: #ff0000;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 18px;
-        text-transform: uppercase;
-        border-bottom: 1px solid #333;
-        padding-bottom: 10px;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .technique-name {
+        font-size: 24px;
+        color: #fff;
+        font-weight: bold;
+        border-bottom: 1px solid #ff0000;
+        padding-bottom: 5px;
         margin-bottom: 15px;
     }
 
-    .vital-desc {
-        color: #888;
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
+    .execution-list {
+        list-style-type: none;
+        padding-left: 0;
     }
 
-    /* Esconder elementos chatos */
+    .execution-list li {
+        margin-bottom: 10px;
+        padding-left: 15px;
+        border-left: 2px solid #333;
+    }
+
+    /* Ponto Vital - Destaque */
+    .vital-highlight {
+        color: #ff0000;
+        font-weight: bold;
+    }
+
     header, footer, #MainMenu {visibility: hidden;}
     </style>
     """, unsafe_allow_html=True)
 
 def main():
-    # Header de Elite
+    # Header
     st.markdown("""
-        <div class="title-container">
-            <div class="main-title">MK // STRIKER</div>
-            <p style="color: #666; letter-spacing: 3px;">ADVANCED COMBAT SYSTEM v1.0</p>
+        <div class="header-box">
+            <p style="color: #ff0000; margin-bottom: 5px;">CLASSIFIED // INSTRUCTIONAL MANUAL</p>
+            <h1 class="main-title">MK MECHANICAL STRIKE</h1>
         </div>
     """, unsafe_allow_html=True)
 
-    col1, col2 = st.columns([1, 1.5])
+    col1, col2 = st.columns([1.2, 1])
 
     with col1:
-        st.markdown("<h2 style='font-family: Orbitron; color: white;'>🔴 PONTOS VITAIS</h2>", unsafe_allow_html=True)
+        st.markdown("### [ EXECUÇÃO DE ARSENAL ]")
         
-        vitals = [
-            ("Têmpora", "Impacto causa desorientação imediata e perda de consciência."),
-            ("Queixo (The Button)", "O ponto de nocaute principal. Rotaciona o crânio e desliga o sistema."),
-            ("Fígado", "Localizado abaixo das costelas à direita. Um golpe bem encaixado paralisa o corpo."),
-            ("Plexo Solar", "Interrompe o diafragma. Deixa o oponente sem ar instantaneamente."),
-            ("Nervo Fibular", "Lado externo da coxa. Chutes aqui desativam a base e o movimento.")
-        ]
+        # Técnica 1: Roundhouse Kick (Chute Circular)
+        with st.container():
+            st.markdown("""
+                <div class="step-card">
+                    <span class="step-number">TECH #01</span>
+                    <div class="technique-name">THAI ROUNDHOUSE KICK</div>
+                    <ul class="execution-list">
+                        <li><b>O PASSO:</b> Dê um passo diagonal (45°) para fora com a perna da frente, abrindo o quadril.</li>
+                        <li><b>O EIXO:</b> Gire sobre a ponta do pé de apoio. O calcanhar deve apontar para o alvo no momento do impacto.</li>
+                        <li><b>A TRAJETÓRIA:</b> Não chute para cima; chute ATRAVÉS do alvo, como se fosse cortar o oponente ao meio.</li>
+                        <li><b>O IMPACTO:</b> Conecte com a parte inferior da <span class="vital-highlight">TÍBIA (CANELA)</span>, nunca com o pé.</li>
+                        <li><b>O BRAÇO:</b> Jogue o braço do mesmo lado do chute para baixo e para trás para gerar torque e equilíbrio.</li>
+                    </ul>
+                </div>
+            """, unsafe_allow_html=True)
 
-        for title, desc in vitals:
-            st.markdown(f"""
-                <div class="fight-card">
-                    <div class="vital-title">{title}</div>
-                    <div class="vital-desc">{desc}</div>
+        # Técnica 2: Spear Knee (Joelhada)
+        with st.container():
+            st.markdown("""
+                <div class="step-card">
+                    <span class="step-number">TECH #02</span>
+                    <div class="technique-name">SPEAR KNEE (KAO TAWN)</div>
+                    <ul class="execution-list">
+                        <li><b>A POSTURA:</b> Projete o quadril para frente enquanto sobe o joelho.</li>
+                        <li><b>O PÉ:</b> Mantenha os dedos do pé que golpeia apontados para baixo para tencionar a musculatura da perna.</li>
+                        <li><b>O CONTATO:</b> Use a ponta do joelho para perfurar o <span class="vital-highlight">PLEXO SOLAR</span> ou o <span class="vital-highlight">FÍGADO</span>.</li>
+                        <li><b>A DEFESA:</b> Mantenha o queixo colado no ombro oposto e a guarda alta durante a projeção.</li>
+                    </ul>
                 </div>
             """, unsafe_allow_html=True)
 
     with col2:
-        st.markdown("<h2 style='font-family: Orbitron; color: white;'>⚔️ ARSENAL LETHAL</h2>", unsafe_allow_html=True)
+        st.markdown("### [ ANATOMIA DO DANO ]")
         
-        tab_ataque, tab_tecnica = st.tabs(["ATAQUES", "SISTEMA DE DEFESA"])
+        st.markdown("""
+            <div class="step-card">
+                <div class="vital-title" style="color:#ff0000; font-weight:bold;">ALVOS DE ALTA PRIORIDADE</div>
+                <hr style="border-color:#333">
+                <p><b>1. NERVO MANDIBULAR:</b> Localizado no queixo. O impacto causa uma oscilação cerebral (Nocaute).</p>
+                <p><b>2. ARTÉRIA CARÓTIDA:</b> Lateral do pescoço. Chutes altos aqui interrompem o fluxo sanguíneo cerebral.</p>
+                <p><b>3. NERVO CIÁTICO:</b> Alvo principal dos Low Kicks. Localizado no meio da lateral da coxa.</p>
+                <p><b>4. COSTELAS FLUTUANTES:</b> Alvo de chutes médios e joelhadas. Facilmente fraturáveis, interrompendo a respiração.</p>
+            </div>
+        """, unsafe_allow_html=True)
 
-        with tab_ataque:
-            # Lista de golpes com estilo
-            golpes = {
-                "Jab & Cross": "A base de tudo. Velocidade e precisão.",
-                "Thai Roundhouse Kick": "Poder devastador usando a tíbia como uma barra de ferro.",
-                "Spear Knee": "Joelhada em linha reta furando a guarda.",
-                "Horizontal Elbow": "Corte preciso. Fecha o supercílio e gera sangue."
-            }
-            
-            for g, d in golpes.items():
-                with st.expander(f"➔ {g}"):
-                    st.write(d)
-                    st.progress(90 if "Kick" in g else 70) # Barra de poder
+        # Pequeno "Easter Egg" de Dev
+        st.write("---")
+        if st.checkbox("MOSTRAR CÓDIGO DE CONDUTA"):
+            st.code("""
+            if oponente_abriu_guarda:
+                executar(Knee_Spear)
+            elif oponente_recuou:
+                executar(Low_Kick)
+            else:
+                manter(Distancia_Segura)
+            """, language="python")
 
-        with tab_tecnica:
-            st.markdown("""
-                ### BLOQUEIO EM X
-                Usado para aparar joelhadas e chutes frontais.
-                ### ESQUIVA DE PENDULO
-                Mover o tronco em 'U' para passar por baixo de ganchos.
-                ### CHECKING (BLOQUEIO DE CANELA)
-                Girar o joelho para fora e aparar o chute com a parte dura do osso.
-            """)
-
-    # Interface de "Treino de Hoje"
-    st.write("---")
-    st.markdown("<h3 style='text-align: center; font-family: Orbitron;'>GERADOR DE COMBINAÇÃO MK</h3>", unsafe_allow_html=True)
-    
-    if st.button("GERAR COMBO DE ELITE", use_container_width=True):
-        combos = [
-            "JAB + DIRETO + CRUZADO + LOW KICK",
-            "DIRETO + CHUTE MÉDIO + JOELHADA DIRETA",
-            "JAB + COTOVELO ASCENDENTE + CLICH + JOELHADA",
-            "ESQUIVA LATERAL + GANCHO NO FÍGADO + CHUTE NA CABEÇA"
-        ]
-        import random
-        st.error(f"EXECUTE: {random.choice(combos)}")
+    # Rodapé Técnico
+    st.markdown("<p style='text-align: center; color: #333; font-size: 10px;'>MK COMBAT SYSTEMS // ENCRYPTION ENABLED</p>", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
